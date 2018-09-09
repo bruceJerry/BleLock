@@ -1,0 +1,46 @@
+[DebugChecksum]
+Checksum=994727310
+[DisAssemblyWindow]
+NumStates=_ 1
+State 1=_ 1
+[InstructionProfiling]
+Enabled=_ 0
+[CodeCoverage]
+Enabled=_ 0
+[StackPlugin]
+Enabled=1
+OverflowWarningsEnabled=1
+WarningThreshold=90
+SpWarningsEnabled=1
+WarnHow=0
+UseTrigger=1
+TriggerName=main
+LimitSize=0
+ByteLimit=50
+[Log file]
+LoggingEnabled=_ 0
+LogFile=_ ""
+Category=_ 0
+[TermIOLog]
+LoggingEnabled=_ 0
+LogFile=_ ""
+[Breakpoints]
+Count=0
+[ChipconEmu]
+Stop timers on halt=0
+Leave target running=1
+[Aliases]
+A0=_ "C:\Texas Instruments\BLE-CC254x-1.3.2\Components\hal\target\CC2540EB\hal_flash.c" ""
+A1=_ "C:\Texas Instruments\BLE-CC254x-1.3.2\Projects\ble\util\SBL\app\cc254x\_sbl_uart.c" ""
+A2=_ "C:\Texas Instruments\BLE-CC254x-1.3.2\Projects\ble\util\SBL\app\sbl_exec.c" ""
+A3=_ "C:\Texas Instruments\BLE-CC254x-1.3.2\Projects\ble\util\SBL\app\sbl_main.c" ""
+A4=_ "C:\Users\Administrator\Desktop\hardware\test4_a1\BLE_NEW\BLE_NEW\Components\hal\target\CC2540EB\hal_flash.c" ""
+A5=_ "C:\Users\Administrator\Desktop\hardware\test4_a1\BLE_NEW\BLE_NEW\Projects\ble\util\SBL\app\cc254x\_sbl_uart.c" ""
+A6=_ "C:\Users\Administrator\Desktop\hardware\test4_a1\BLE_NEW\BLE_NEW\Projects\ble\util\SBL\app\sbl_exec.c" ""
+A7=_ "C:\Users\Administrator\Desktop\hardware\test4_a1\BLE_NEW\BLE_NEW\Projects\ble\util\SBL\app\sbl_main.c" ""
+A8=_ "C:\Users\Administrator\Desktop\hardware\test5_a1\BLE_NEW\Components\hal\target\CC2540EB\hal_flash.c" ""
+A9=_ "C:\Users\Administrator\Desktop\hardware\test5_a1\BLE_NEW\Projects\ble\util\SBL\app\cc254x\_sbl_uart.c" ""
+A10=_ "C:\Users\Administrator\Desktop\hardware\test5_a1\BLE_NEW\Projects\ble\util\SBL\app\sbl_exec.c" ""
+A11=_ "C:\Users\Administrator\Desktop\hardware\test5_a1\BLE_NEW\Projects\ble\util\SBL\app\sbl_main.c" ""
+Count=12
+SuppressDialog=0

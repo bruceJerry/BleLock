@@ -1,0 +1,8 @@
+Warning[w6]: Type conflict for external/entry "appForceBoot", in module simpleBLEPeripheral against external/entry in module OnBoard; prototyped function vs K&R function
+  /* In module simpleBLEPeripheral: */
+  /* K&R Function, args 0, attr 0 */
+  int (__xdata_reentrant appForceBoot)();
+  /* In module OnBoard: */
+  /* Function, args 0, attr 0 */
+  void (__xdata_reentrant appForceBoot)(void);
+Error[e72]: Segment XDATA_HEAP must be defined in a segment definition option (-Z, -b or -P)

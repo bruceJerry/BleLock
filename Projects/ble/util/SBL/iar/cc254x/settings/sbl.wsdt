@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<Workspace>
+  <ConfigDictionary>
+    
+  <CurrentConfigs><Project>sbl/CC254xF256_UART0_ALT1</Project></CurrentConfigs></ConfigDictionary>
+  <Desktop>
+    <Static>
+      <Workspace>
+        <ColumnWidths>
+          
+          
+          
+          
+        <Column0>223</Column0><Column1>27</Column1><Column2>27</Column2><Column3>27</Column3></ColumnWidths>
+      </Workspace>
+      <Build>
+        
+        
+        
+        
+      <ColumnWidth0>20</ColumnWidth0><ColumnWidth1>1395</ColumnWidth1><ColumnWidth2>372</ColumnWidth2><ColumnWidth3>93</ColumnWidth3></Build>
+    <TerminalIO/><Find-in-Files><ColumnWidth0>664</ColumnWidth0><ColumnWidth1>94</ColumnWidth1><ColumnWidth2>1138</ColumnWidth2></Find-in-Files><Debug-Log><ColumnWidth0>20</ColumnWidth0><ColumnWidth1>1861</ColumnWidth1></Debug-Log><Disassembly><MixedMode>1</MixedMode><CodeCovShow>1</CodeCovShow><InstrProfShow>1</InstrProfShow></Disassembly></Static>
+    <Windows>
+      
+      
+    <Wnd0>
+        <Tabs>
+          <Tab>
+            <Identity>TabID-21895-27799</Identity>
+            <TabName>Workspace</TabName>
+            <Factory>Workspace</Factory>
+            <Session>
+              
+            <NodeDict><ExpandedNode>sbl</ExpandedNode><ExpandedNode>sbl/Application</ExpandedNode><ExpandedNode>sbl/Application/sbl_exec.c</ExpandedNode><ExpandedNode>sbl/HAL</ExpandedNode><ExpandedNode>sbl/HAL/Include</ExpandedNode><ExpandedNode>sbl/HAL/Target</ExpandedNode><ExpandedNode>sbl/HAL/Target/CC2540EB</ExpandedNode></NodeDict></Session>
+          </Tab>
+        </Tabs>
+        
+      <SelectedTab>0</SelectedTab></Wnd0><Wnd1>
+        <Tabs>
+          <Tab>
+            <Identity>TabID-11440-27995</Identity>
+            <TabName>Build</TabName>
+            <Factory>Build</Factory>
+            <Session/>
+          </Tab>
+        <Tab><Identity>TabID-17728-17546</Identity><TabName>Find in Files</TabName><Factory>Find-in-Files</Factory><Session/></Tab><Tab><Identity>TabID-10573-1979</Identity><TabName>Debug Log</TabName><Factory>Debug-Log</Factory><Session/></Tab></Tabs>
+        
+      <SelectedTab>0</SelectedTab></Wnd1></Windows>
+    <Editor>
+      
+      
+      
+      
+    <Pane><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\CC254xF256_UART0_ALT1\Exe\SBL_CC254xF256_UART0_ALT1.hex</Filename><XPos>0</XPos><YPos>75</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\CC254xF256_UART0_ALT1\List\sbl.map</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>52366</SelStart><SelEnd>52366</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\..\..\BIM\app\bim_main.c</Filename><XPos>0</XPos><YPos>246</YPos><SelStart>9410</SelStart><SelEnd>9410</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\..\app\sbl_app.h</Filename><XPos>0</XPos><YPos>39</YPos><SelStart>3275</SelStart><SelEnd>3275</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\..\app\sbl_exec.c</Filename><XPos>0</XPos><YPos>258</YPos><SelStart>8587</SelStart><SelEnd>8587</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\..\app\cc254x\_sbl_uart.c</Filename><XPos>0</XPos><YPos>233</YPos><SelStart>8727</SelStart><SelEnd>8727</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\CC254xF256_UART0_ALT1\Exe\sbl.d51</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\..\app\cc254x\sbl_ivec.s51</Filename><XPos>0</XPos><YPos>36</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\..\..\..\..\..\Components\hal\include\hal_adc.h</Filename><XPos>0</XPos><YPos>126</YPos><SelStart>5773</SelStart><SelEnd>5773</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\..\..\..\..\..\Components\hal\target\CC2540EB\hal_mcu.h</Filename><XPos>0</XPos><YPos>186</YPos><SelStart>1973</SelStart><SelEnd>1973</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\CC254xF256_UART0_ALT1\Obj\hal_flash.r51</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\..\..\..\..\..\Components\hal\include\hal_defs.h</Filename><XPos>0</XPos><YPos>117</YPos><SelStart>578</SelStart><SelEnd>578</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\..\app\sbl_exec.h</Filename><XPos>0</XPos><YPos>60</YPos><SelStart>1672</SelStart><SelEnd>1672</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\..\..\..\..\..\Components\hal\include\hal_board.h</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>27</SelStart><SelEnd>27</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\..\..\..\..\..\Components\hal\target\CC2540EB\hal_board_cfg.h</Filename><XPos>0</XPos><YPos>456</YPos><SelStart>5217</SelStart><SelEnd>5217</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\..\..\..\..\..\Components\hal\include\hal_rpc.h</Filename><XPos>0</XPos><YPos>79</YPos><SelStart>4773</SelStart><SelEnd>4773</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\..\..\..\..\..\Components\hal\include\hal_uart.h</Filename><XPos>0</XPos><YPos>227</YPos><SelStart>2089</SelStart><SelEnd>2089</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\..\..\..\..\..\Components\hal\target\CC2540EB\hal_flash.c</Filename><XPos>0</XPos><YPos>101</YPos><SelStart>4950</SelStart><SelEnd>4950</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\..\..\..\..\..\Components\hal\target\CC2540EB\hal_adc.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>7193</SelStart><SelEnd>7193</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\..\..\..\..\..\Components\hal\target\CC2540EB\hal_types.h</Filename><XPos>0</XPos><YPos>66</YPos><SelStart>703</SelStart><SelEnd>703</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\..\..\..\..\..\Components\hal\include\hal_flash.h</Filename><XPos>0</XPos><YPos>81</YPos><SelStart>4429</SelStart><SelEnd>4429</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\..\..\..\..\..\Components\hal\target\CC2540EB\hal_dma.h</Filename><XPos>0</XPos><YPos>71</YPos><SelStart>3616</SelStart><SelEnd>3616</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\..\app\sbl_main.c</Filename><XPos>0</XPos><YPos>71</YPos><SelStart>3907</SelStart><SelEnd>3907</SelEnd></Tab><ActiveTab>22</ActiveTab></Pane><ActivePane>0</ActivePane><Sizes><Pane><X>1000000</X><Y>1000000</Y></Pane></Sizes><SplitMode>1</SplitMode></Editor>
+    <Positions>
+      
+      
+      
+      
+      
+    <Top><Row0><Sizes><Toolbar-0069dde0><key>iaridepm.enu1</key></Toolbar-0069dde0></Sizes></Row0><Row1><Sizes/></Row1><Row2><Sizes/></Row2></Top><Left><Row0><Sizes><Wnd0><Rect><Top>-2</Top><Left>-2</Left><Bottom>616</Bottom><Right>314</Right><x>-2</x><y>-2</y><xscreen>9</xscreen><yscreen>154</yscreen><sizeHorzCX>7902</sizeHorzCX><sizeHorzCY>179070</sizeHorzCY><sizeVertCX>277436</sizeVertCX><sizeVertCY>718605</sizeVertCY></Rect></Wnd0></Sizes></Row0></Left><Right><Row0><Sizes/></Row0></Right><Bottom><Row0><Sizes><Wnd1><Rect><Top>-2</Top><Left>-2</Left><Bottom>199</Bottom><Right>1141</Right><x>-2</x><y>-2</y><xscreen>1143</xscreen><yscreen>201</yscreen><sizeHorzCX>1003512</sizeHorzCX><sizeHorzCY>233721</sizeHorzCY><sizeVertCX>7902</sizeVertCX><sizeVertCY>179070</sizeVertCY></Rect></Wnd1></Sizes></Row0></Bottom><Float><Sizes/></Float></Positions>
+  </Desktop>
+</Workspace>
+
+
