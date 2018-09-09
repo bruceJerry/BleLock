@@ -1,42 +1,3 @@
-/**************************************************************************************************
-  Filename:       simpleBLEPeripheral.c
-  Revised:        $Date: 2010-08-06 08:56:11 -0700 (Fri, 06 Au1`o为89g 2010) $
-  Revision:       $Revision: 23333 $
-
-  Description:    This file contains the Simple BLE Peripheral sample application
-                  for use with the CC2540 Bluetooth Low Energy Protocol Stack.
-
-  Copyright 2010 - 2013 Texas Instruments Incorporated. All rights reserved.
-
-  IMPORTANT: Your use of this Software is limited to those specific rights
-  granted under the terms of a software license agreement between the user
-  who downloaded the software, his/her employer (which must be your employer)
-  and Texas Instruments Incorporated (the "License").  You may not use this
-  Software unless you agree to abide by the terms of the License. The License
-  limits your use, and you acknowledge, that the Software may not be modified,
-  copied or distributed unless embedded on a Texas Instruments microcontroller
-  or used solely and exclusively in conjunction with a Texas Instruments radio
-  frequency transceiver, which is integrated into your product.  Other than for
-  the foregoing purpose, you may not use, reproduce, copy, prepare derivative
-  works of, modify, distribute, perform, display or sell this Software and/or
-  its documentation for any purpose.
-
-  YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
-  PROVIDED 揂S IS?WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
-  INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE,
-  NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
-  TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
-  NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR OTHER
-  LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
-  INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE
-  OR CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT
-  OF SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
-  (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
-
-  Should you have any questions regarding your right to use this Software,
-  contact Texas Instruments Incorporated at www.TI.com.
-**************************************************************************************************/
-
 /*********************************************************************
  * INCLUDES
  */
@@ -52,7 +13,6 @@
 #include "hal_lcd.h"
 #include "stdio.h"
 #include "gatt.h"
-
 #include "hal_uart.h"
 #include "hci.h"
 #include "MPR121.h"
@@ -62,8 +22,6 @@
 #include "simpleGATTprofile.h"
 #include "oad.h"
 #include "oad_target.h"
- 
-
 #include "AT020.h"
 #if defined( CC2540_MINIDK )
   #include "simplekeys.h"
@@ -326,28 +284,11 @@ static uint8 scanRspData[] =
   0xe9,
   0x94,
   0x81,
- // 0x53,   // 'S'
- // 0x69,   // 'i'
- // 0x6d,   // 'm'
- // 0x70,   // 'p'
- // 0x6c,   // 'l'
- // 0x65,   // 'e'
- // 0x42,   // 'B'
- // 0x4c,   // 'L'
- // 0x45,   // 'E'
- // 0x50,   // 'P'
- // 0x65,   // 'e'
- // 0x72,   // 'r'
   0x48,     // 'H'
   0x49,     // 'I'
   //0x70,   // 'p'
   0x53,     // 'S'
   0x53,     // 'S'
-  //'2',
-  //0x65,   // 'e'
-  //0x72,   // 'r'
-  //0x61,   // 'a'
-  //0x6c,   // 'l'
 
   // connection interval range
   0x05,     // length of this data
@@ -379,8 +320,6 @@ static uint8 scanRspDatamac[] =
   0xe9,//7
   0x94,//5
   0x81,//8
-
-
   // connection interval range
   0x05,     // length of this data
   GAP_ADTYPE_SLAVE_CONN_INTERVAL_RANGE,
@@ -399,9 +338,6 @@ static uint8 scanRspDatamac[] =
 #define ADVERT_MAC_ADDR         13
 static uint8 advertData[] =
 {
-  // Flags; this sets the device to use limited discoverable
-  // mode (advertises for 30 seconds at a time) instead of general
-  // discoverable mode (advertises indefinitely)
   0x02,   // length of this data
   GAP_ADTYPE_FLAGS,
   DEFAULT_DISCOVERABLE_MODE | GAP_ADTYPE_FLAGS_BREDR_NOT_SUPPORTED,
@@ -3201,18 +3137,10 @@ static void simpleBLEPeripheral_HandleKeys( uint8 shift, uint8 keys )
       {
       if(k==7)           //输入够6个就可以进去验证了
       {
-        //k=0;
-       
         if(KeyCode[k-1]==0x23)      //按#结束
-        {
-        
+        {        
           kpress=1;           
-          //keylight=0;               //关闭背光灯
-         // P1DIR&=~0x02;             //防止背光灯使能引脚无故被拉高
-          //这里是为空
           pressc=1;
-          // uint32 kc=KeyCode[0]*100000+KeyCode[1]*10000+KeyCode[2]*1000+KeyCode[3]*100+KeyCode[4]*10+KeyCode[5];        
-          //PasscodeV(kc);  
             if((alert.CODEERROR_state>=5)&&((LocalPro%10)!=2))
           {
             BLE_Cmd(0x2B,0,0,2);   //通知多次操作失败
@@ -3311,12 +3239,6 @@ static void simpleBLEPeripheral_HandleKeys( uint8 shift, uint8 keys )
                 {
                   case 1://返回管理员密码
                     {
-                     // PlayVoiceP1(Finger_ADD_SUCCESS);//两次密码不一致报错
-                  //    PlayVoiceP1(KEY_VIOCE);     //按键音
-                 //     delay5ms();  
-                 //     PlayVoiceP1(KEY_VIOCE);     //按键音
-                 //     delay5ms();
-                 //     PlayVoiceP1(KEY_VIOCE);     //按键音
                       BLE_Cmd(0x72,0,6,0);    //将用户输入的组合按键传给wifi
                       BLE_Data(0x72,0,6,KeyCode);
                       
@@ -3327,26 +3249,17 @@ static void simpleBLEPeripheral_HandleKeys( uint8 shift, uint8 keys )
                       
                       memset(KeyCode,0,sizeof(KeyCode));
                       k=0;                      //计数清零
-                  //    LocalPro=0;
                     }
                     break;
                   
                   case 2: //返回普通用户密码
                     {
-                //      PlayVoiceP1(KEY_VIOCE);     //按键音
-                 //     delay5ms();
-                //      PlayVoiceP1(KEY_VIOCE);     //按键音
-                //      delay5ms();
-                //      PlayVoiceP1(KEY_VIOCE);     //按键音
-                      //PlayVoiceP1(Finger_ADD_SUCCESS);//两次密码不一致报错
                       BLE_Cmd(0x74,0,6,0);    //将用户输入的组合按键传给wifi
                       BLE_Data(0x74,0,6,KeyCode);
                       memset(KeyCode,0,sizeof(KeyCode));
                       k=0;                      //计数清零
-                  //    LocalPro=0;
                     }
-                    break;
-                
+                    break;                
                 }
               }else
               {
@@ -3469,17 +3382,10 @@ static void simpleBLEPeripheral_HandleKeys( uint8 shift, uint8 keys )
          {
            k=0;
          }
-      }
-      
-      //SK_Keys |= SK_KEY_RIGHT;      
-      // if device is not in a connection, pressing the right key should toggle
-      // advertising on and off      
+      }   
     }
     P1IEN|=0x21;  // 指纹触摸中断打开
   }
-  // Set the value of the keys state to the Simple Keys Profile;
-  // This will send out a notification of the keys state if enabled
-  // SK_SetParameter( SK_KEY_ATTR, sizeof ( uint8 ), &SK_Keys );
 }
 /*********************************************************************
  * @fn      peripheralStateNotificationCB
@@ -3601,40 +3507,6 @@ static void peripheralStateNotificationCB( gaprole_States_t newState )
 }
 
 /*********************************************************************
- * @fn      performPeriodicTask
- *
- * @brief   Perform a periodic application task. This function gets
- *          called every five seconds as a result of the SBP_PERIODIC_EVT
- *          OSAL event. In this example, the value of the third
- *          characteristic in the SimpleGATTProfile service is retrieved
- *          from the profile, and then copied into the value of the
- *          the fourth characteristic.
- *
- * @param   none
- *
- * @return  none
- */
-/*
-static void performPeriodicTask( void )
-{
-  uint8 valueToCopy;
-  uint8 stat;
-if(a<=13)
-{
-   PlayVoiceP1(a);
-   a++;
-}
-  // Call to retrieve the value of the third characteristic in the profile
-  stat = SimpleProfile_GetParameter( SIMPLEPROFILE_CHAR3, &valueToCopy);
-   //PasscodeV(123456);
-  if( stat == SUCCESS )
-  {
-   
-  SimpleProfile_SetParameter( SIMPLEPROFILE_CHAR4, sizeof(uint8), &valueToCopy);
-  }
-}*/
-
-/*********************************************************************
  * @fn      simpleProfileChangeCB
  *
  * @brief   Callback from SimpleBLEProfile indicating a value change
@@ -3656,13 +3528,6 @@ static void simpleProfileChangeCB( uint8 paramID )
 
     case SIMPLEPROFILE_CHAR3:
       SimpleProfile_GetParameter( SIMPLEPROFILE_CHAR3, &newValue );
-      /*if(newValue==1)
-      {
-        HalFlashErase(0x08);
-        uint8 BA[2]={0xff,0xff};
-        HalFlashWrite(0x1000, BA, 1);// 起始地址=pg*2k/4转换为16进制
-        HAL_SYSTEM_RESET();
-      }*/
       break;
       
      case SIMPLEPROFILE_CHAR5: 
