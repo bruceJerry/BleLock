@@ -3668,10 +3668,7 @@ static void simpleProfileChangeCB( uint8 paramID )
      case SIMPLEPROFILE_CHAR5: 
       { 
          uint8 char5Data[16] = {0};
-         SimpleProfile_GetParameter( SIMPLEPROFILE_CHAR5, &char5Data );
-         
-         //E == entry D == delete [1] == num [2] == length
-         //R == restore L == Layoffs M == modify
+         SimpleProfile_GetParameter( SIMPLEPROFILE_CHAR5, &char5Data );     
          LL_EXT_Decrypt( key1, char5Data, char5Data); 
          if( char5Data[0]=='E')//录指纹
          {
@@ -3857,13 +3854,6 @@ static void simpleProfileChangeCB( uint8 paramID )
             //notify 出去
            Send_Notify_EVT_With("voisuccess");
          }
-         
-         //if(char5Data[0] != 'V'){
-           //这次不同步
-          // nonate = 1;
-           //下次同步数据
-           //need_update++;
-        // }
       }
       break;
       
@@ -3884,21 +3874,6 @@ static void simpleProfileChangeCB( uint8 paramID )
              alert.CODEERROR_state = 0;
          } 
         }
-         
-         /*else if(BLEdata[0]=='G'){
-           
-           char* newkey = genRandomString(16);
-           memcpy(key1,newkey,16);
-           uint8 char6[16]={2,34,56,66,12,15,45,88, key1[2], key1[3], key1[5], key1[7], key1[10], key1[13],22,56};
-           uint8 key2[16] = "1234567812345678";//{1,2,3,4,5,6,7,8,1,2,3,4,5,6,7,8};
-      
-           LL_Encrypt( key2, key1, char6 );
-           free(newkey);
-           
-           Send_Notify_EVT_With(char6);
-         }
-         */
-         //OpenCmd(BLE_OPEN,FAIL); //串口发送开锁命令(蓝牙开锁)
        }
       break;
    case SIMPLEPROFILE_CHAR7: 
@@ -3906,12 +3881,9 @@ static void simpleProfileChangeCB( uint8 paramID )
         memset(&char7Data,0,sizeof(char7Data));
         memset(&char7DataSub,0,sizeof(char7DataSub));
         
-        SimpleProfile_GetParameter( SIMPLEPROFILE_CHAR7, &char7Data);
-        //N == name P == password [1] == num [2] == length
-        //I == init C == ControlPassword Y == key S == secret
-        
-        for(uint8 i=0;i<16;i++){
-             
+        SimpleProfile_GetParameter( SIMPLEPROFILE_CHAR7, &char7Data);      
+        for(uint8 i=0;i<16;i++)
+		{     
           char7DataSub[i]=char7Data[i+4];
         }
         LL_EXT_Decrypt( key1, char7DataSub, char7DataSub);
@@ -4394,7 +4366,6 @@ __interrupt void UART0_ISR(void) //和指纹通信
                           {
                             PlayVoiceP1(Finger_RQ);     //按键音
                           }
-                        //  osal_start_timerEx(simpleBLEPeripheral_TaskID, FPHSTIMEOUT_EVT, 5000);
                         }
                     }
 #endif                
@@ -4411,8 +4382,6 @@ __interrupt void UART0_ISR(void) //和指纹通信
                             sanswer[0]=fgbuffer[2];
                             sanswer[1]=fgbuffer[3];
                           
-                           // BLE_Cmd(0x30,0,2,0);
-                          //  BLE_Data(0x30,0,0x02,answer);
                              fp_rigister_userId_gl = (sanswer[0]<<8)&0xFF|sanswer[1];      
 
                              Send_Notify_EVT_With("200000");
@@ -4421,7 +4390,6 @@ __interrupt void UART0_ISR(void) //和指纹通信
                           
                             fpid[0]=fgbuffer[2];
                             fpid[1]=fgbuffer[3];
-                           // PlayVoiceP1(Finger_RQA);  
                             luru=2;     //关闭中断验证指纹命令
                             //成功后要验证，要不要再提示按指纹
                             osal_start_timerEx(simpleBLEPeripheral_TaskID, FP_Voice_EVT, 50);
@@ -4443,7 +4411,6 @@ __interrupt void UART0_ISR(void) //和指纹通信
                           {
                             fpid[0]=fgbuffer[2];
                             fpid[1]=fgbuffer[3];
-                          //  PlayVoiceP1(Finger_RQA); 
                             osal_start_timerEx(simpleBLEPeripheral_TaskID, FP_Voice_EVT, 50);
                             osal_start_timerEx(simpleBLEPeripheral_TaskID, FPTIMEOUT_EVT, 10000);
                           }
@@ -4480,13 +4447,11 @@ __interrupt void UART0_ISR(void) //和指纹通信
                           PlayVoiceP1(Finger_ADD_SUCCESS);
                           Send_Notify_EVT_With("300000");
                           userd.user[index[0]].fp[index[1]]=fp_rigister_userId_gl;
-                         // BLE_Cmd(0x29,0,0,fp_rigister_userId_gl);
                           fpadds = 1;
                           osal_start_timerEx(simpleBLEPeripheral_TaskID, Datacleanfx_EVT, 0);
                         }
                         else
                         {
-                        //  BLE_Cmd(0x36,0,0,1);
                           PlayVoiceP1(Finger_ADD_FAIL);
                           Send_Notify_EVT_With("300001");
                           
@@ -4497,7 +4462,6 @@ __interrupt void UART0_ISR(void) //和指纹通信
                       
                       else
                         {
-                          //BLE_Cmd(0x36,0,0,1); 
                           PlayVoiceP1(VERIFY_FAIL);
                           Send_Notify_EVT_With("300001");
                           if(fp_rigister_userId_gl != 0)
@@ -4507,12 +4471,7 @@ __interrupt void UART0_ISR(void) //和指纹通信
                     {
                       if(fgbuffer[4]==0)//验证成功 
                         {
-                           osal_stop_timerEx( simpleBLEPeripheral_TaskID, FPTIMEOUT_EVT ); //将复位机制关闭 
-                       //   PlayVoiceP1(KEY_VIOCE);     //按键音
-                       //   delay5ms();
-                      //    PlayVoiceP1(KEY_VIOCE);     //按键音
-                      //    delay5ms();
-                       //   PlayVoiceP1(KEY_VIOCE);     //按键音
+                         osal_stop_timerEx( simpleBLEPeripheral_TaskID, FPTIMEOUT_EVT ); //将复位机制关闭 
                          if(LocalPro/100==1)
                          {
                            BLE_Cmd(0x72,0,2,0);
@@ -4556,18 +4515,13 @@ __interrupt void UART0_ISR(void) //和指纹通信
                           {
                             PlayVoiceP1(Finger_RQ);     //按键音
                           }
-                        }  
-                      
-                    
-                    }
-
+                        }                                        
+                    	}
                     }
                     break;
                     
                     case 0x0C://验证指纹 验证指纹用oc
-                    {
-                      
-                       //P1IEN|=0x20;  // 打开指纹中断 
+                    {                  
 #ifdef LOCAL
                       if((LocalPro%10)==2)
                       {
@@ -4685,79 +4639,16 @@ __interrupt void UART0_ISR(void) //和指纹通信
                     case 0x0D://获取未使用ID
                     {
                       if(fgbuffer[2]!=0||fgbuffer[3]!=0)//有可用ID
-                        {
-                         // unsigned char  answer[2]={0};
-                          //answer[0]=fgbuffer[2];
-                          //answer[1]=fgbuffer[3];
-                
-                         // BLE_Cmd(0x37,0,2,0);
-                       //   BLE_Data(0x37,0,0x02,answer);     
-                          
+                        {                            
                           fpprocess=0;
-                       //   uint16_t userId=fgbuffer[2]<<8|fgbuffer[3];
-                      //    User_Load_Deposit_FeatureValue( userId,USER_ROLE_1,fgbuffer1);
                           NC = 0;
                           memset(fgbuffer1,0,sizeof(fgbuffer1));
                           wifisenddata[0]=0;
                         }
                     }
                     break;
-                    case 0x04://删除特定指纹
-                    {
-                        if(fgbuffer[4]==0)//删除指定用户成功
-                        {
-                          //BLE_Cmd(0x29,0,2,0);
-                         // BLE_Data(0x29,0,2,KeyCode);
-                         //BLE_Cmd(0x34,0,1,0);
-                         //BLE_Data(0x34,0,1,&fgbuffer[4]);
-                         // char* charValue5="100000";
-                         // SimpleProfile_SetParameter( SIMPLEPROFILE_CHAR5, SIMPLEPROFILE_CHAR5_LEN, charValue5 );
-                         // userd.user[index[0]].fp[index[1]]=0;
-
-                        // HalFlashErase(0x7d);
-                        // while(FCTL & 0x80);
-                        // HalFlashWrite(0xFA00, (uint8 *)&userd, sizeof(slFlash_t)/4);
-#ifdef bank0     
-                          //PlayVoiceP1(Finger_REMOVE);
-#endif
-                        }
-                        else
-                        {
-                         // BLE_Cmd(0x29,0,3,0);
-                         // BLE_Data(0x29,0,3,KeyCode);
-                          //BLE_Cmd(0x34,0,0,1);
-                          //char* charValue5="100001";
-                          //SimpleProfile_SetParameter( SIMPLEPROFILE_CHAR5, SIMPLEPROFILE_CHAR5_LEN, charValue5 );
-                          
-                        }
-                          
-                    }
-                    break;
                     case 0x05://删除所有指纹
                     {
-                       if(fgbuffer[4]==0)//删除成功
-                        {
-                        // BLE_Data(0x35,0,0x00,&fgbuffer[4]);
-#ifdef bank0
-                       //  PlayVoiceP1(Finger_REMOVE);
-#endif   
-                         // BLE_Cmd(0x29,0,4,0);
-                          //BLE_Data(0x29,0,4,KeyCode);
-                        
-                        }else
-                        {
-                          //fgbuffer[4]=1;
-                         // BLE_Data(0x35,0,0x00,&fgbuffer[4]);
-                         // BLE_Cmd(0x29,0,5,0);
-                         // BLE_Data(0x29,0,5,KeyCode);
-                        }
-                    }
-                    break;
-                    case 0x31://获取注册用户ID和权限
-                    {
-                    
-                    }
-                    break;
                      case 0x41://下传成功
                     {
                        if(fgbuffer[4]==0)//下传成功
