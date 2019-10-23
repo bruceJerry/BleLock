@@ -71,15 +71,15 @@ void PN532WakeUp()
         data[15]=0x00;
         
         data[16]=0xFF;
-        data[17]=0x03; //¡ã¨¹ 3¡è?¨¨
-        data[18]=0xFD; //¡ã¨¹ 3¡è?¨¨ D¡ê?¨¦  0x100-data[3]
-        data[19]=0xD4; //?¨¹¨¢?¡À¨º¨º???
-        data[20]=0x14; //?¨¹¨¢?¡À¨º¨º???
+        data[17]=0x03; //Â°Ã¼ 3Â¤?Ã¨
+        data[18]=0xFD; //Â°Ã¼ 3Â¤?Ã¨ Dï¿¡?Ã©  0x100-data[3]
+        data[19]=0xD4; //?Ã¼Ã¡?Â±ÃªÃª???
+        data[20]=0x14; //?Ã¼Ã¡?Â±ÃªÃª???
         data[21]=0x01;
-        data[22]=0x17; //¨ºy?Y D¡ê?¨¦   0x100-
+        data[22]=0x17; //Ãªy?Y Dï¿¡?Ã©   0x100-
         data[23]=0x00;
-        
-        UartSendString1(data,24);//¨ª¨´USART1¡ê?¡¤¡é?¨ª length3¡è?¨¨¦Ì?¨ºy?Ydata
+        //test   haha 
+        UartSendString1(data,24);//Ã­Ã¹USART1ï¿¡?Â·ï¿ ?Ã­ length3Â¤?Ã¨Î¼?Ãªy?Ydata
   
        
        nfcs=1;
@@ -99,21 +99,21 @@ void  nfc_InListPassiveTarget(void)
         data[0]=0x00;
         data[1]=0x00;
         data[2]=0xFF;
-        data[3]=0x04; //¡ã¨¹ 3¡è?¨¨
-        data[4]=0xFC; //¡ã¨¹ 3¡è?¨¨ D¡ê?¨¦  0x100-data[3]
-        data[5]=0xD4; //?¨¹¨¢?¡À¨º¨º???
-        data[6]=0x4A; //?¨¹¨¢?¡À¨º¨º???
+        data[3]=0x04; //Â°Ã¼ 3Â¤?Ã¨
+        data[4]=0xFC; //Â°Ã¼ 3Â¤?Ã¨ Dï¿¡?Ã©  0x100-data[3]
+        data[5]=0xD4; //?Ã¼Ã¡?Â±ÃªÃª???
+        data[6]=0x4A; //?Ã¼Ã¡?Â±ÃªÃª???
         data[7]=0x01;
         data[8]=0x00;
-        data[9]=0xE1; //¨ºy?Y D¡ê?¨¦   0x100-
+        data[9]=0xE1; //Ãªy?Y Dï¿¡?Ã©   0x100-
         data[10]=0x00;
         
-        UartSendString1(data,11);//¨ª¨´USART1¡ê?¡¤¡é?¨ª length3¡è?¨¨¦Ì?¨ºy?Ydata
+        UartSendString1(data,11);//Ã­Ã¹USART1ï¿¡?Â·ï¿ ?Ã­ length3Â¤?Ã¨Î¼?Ãªy?Ydata
         nfcs=2;
 }
 
 
-// ?¨¹??¨º¨²¨¨¡§¡ê??¨¦?¡èKeyA
+// ?Ã¼??ÃªÃºÃ¨Â¨ï¿¡??Ã©?Â¤KeyA
 //00 00 FF 0F F1 D4 40 01 60 03 FF FF FF FF FF FF UID1 UID2 UID3 UID4 2A 00
 //00 00 FF 0F F1 D4 40 01 60 03 FF FF FF FF FF FF 94 8A 3B 0B 2A 00
 void  nfc_PsdVerifyKeyA(void)
@@ -127,17 +127,17 @@ void  nfc_PsdVerifyKeyA(void)
     data[1]=0x00;
     data[2]=0xFF;
     
-    data[3]=0x0F; //¡ã¨¹ 3¡è?¨¨
-    data[4]=0xF1; //¡ã¨¹ 3¡è?¨¨ D¡ê?¨¦  0x100-data[3]
+    data[3]=0x0F; //Â°Ã¼ 3Â¤?Ã¨
+    data[4]=0xF1; //Â°Ã¼ 3Â¤?Ã¨ Dï¿¡?Ã©  0x100-data[3]
     
-    data[5]=0xD4; //?¨¹¨¢?¡À¨º¨º???
-    data[6]=0x40; //?¨¹¨¢?¡À¨º¨º???
+    data[5]=0xD4; //?Ã¼Ã¡?Â±ÃªÃª???
+    data[6]=0x40; //?Ã¼Ã¡?Â±ÃªÃª???
     
     data[7]=0x01;
     data[8]=0x60;
     data[9]=0x03; 
     
-    data[10]=0xFF; //KEY A ?¨¹?? FF FF FF FF FF FF
+    data[10]=0xFF; //KEY A ?Ã¼?? FF FF FF FF FF FF
     data[11]=0xFF;
     data[12]=0xFF;
     data[13]=0xFF;
@@ -154,17 +154,17 @@ void  nfc_PsdVerifyKeyA(void)
         temp+=data[i];
     }
 
-    data[20]=0x100-temp;   //¨ºy?Y D¡ê?¨¦   0x100-
+    data[20]=0x100-temp;   //Ãªy?Y Dï¿¡?Ã©   0x100-
     
     data[21]=0x00;
     
-    UartSendString1(data,22);//¨ª¨´USART1¡ê?¡¤¡é?¨ª length3¡è?¨¨¦Ì?¨ºy?Ydata
+    UartSendString1(data,22);//Ã­Ã¹USART1ï¿¡?Â·ï¿ ?Ã­ length3Â¤?Ã¨Î¼?Ãªy?Ydata
     nfcs=3;
     
     
   
 }
-//??¨¨? ?¨¢ 02??¦Ì?16??¡Á??¨²
+//??Ã¨? ?Ã¡ 02??Î¼?16??Ã—??Ãº
 //00 00 FF 05 FB D4 40 01 30 02 B9 00
 void  nfc_read(void)
 {
@@ -175,20 +175,20 @@ void  nfc_read(void)
     data[1]=0x00;
     data[2]=0xFF;
     
-    data[3]=0x05; //¡ã¨¹ 3¡è?¨¨
-    data[4]=0xFB; //¡ã¨¹ 3¡è?¨¨ D¡ê?¨¦  0x100-data[3]
+    data[3]=0x05; //Â°Ã¼ 3Â¤?Ã¨
+    data[4]=0xFB; //Â°Ã¼ 3Â¤?Ã¨ Dï¿¡?Ã©  0x100-data[3]
     
-    data[5]=0xD4; //?¨¹¨¢?¡À¨º¨º???
-    data[6]=0x40; //?¨¹¨¢?¡À¨º¨º???
+    data[5]=0xD4; //?Ã¼Ã¡?Â±ÃªÃª???
+    data[6]=0x40; //?Ã¼Ã¡?Â±ÃªÃª???
     
     data[7]=0x01;
     data[8]=0x30;
-    data[9]=0x02; //?¨¢¦Ì¨²?t?¨¦¦Ì?16¡Á??¨²¨ºy?Y 
+    data[9]=0x02; //?Ã¡Î¼Ãº?t?Ã©Î¼?16Ã—??ÃºÃªy?Y 
     
-    data[10]=0xB9; //¨ºy?YD¡ê?¨¦
+    data[10]=0xB9; //Ãªy?YDï¿¡?Ã©
     data[11]=0x00;
 
-    UartSendString1(data,12);//¨ª¨´USART1¡ê?¡¤¡é?¨ª length3¡è?¨¨¦Ì?¨ºy?Ydata
+    UartSendString1(data,12);//Ã­Ã¹USART1ï¿¡?Â·ï¿ ?Ã­ length3Â¤?Ã¨Î¼?Ãªy?Ydata
     
     
     //while(!flag_rev_finish)
@@ -205,18 +205,18 @@ void  nfc_read(void)
     {       
          if(RxBuffer1[14]==0xAA)
          {
-            LED1=0;//¦Ì?¨¢¨¢ D1
+            LED1=0;//Î¼?Ã¡Ã¡ D1
          }
          else if(RxBuffer1[14]==0x55)
          {
-            LED1=1;//?¡§?e D1
+            LED1=1;//?Â¨?e D1
          }
          
          if((UID_backup[0]!=UID[0])|(UID_backup[1]!=UID[1])|(UID_backup[2]!=UID[2])|(UID_backup[3]!=UID[3]))
          {
-            GPIO_ResetBits(GPIOD,GPIO_Pin_3);//¡¤??¨´?¡Â ?D
+            GPIO_ResetBits(GPIOD,GPIO_Pin_3);//Â·??Ã¹?Ã· ?D
             delay_ms(150);
-            GPIO_SetBits(GPIOD, GPIO_Pin_3);//¡¤??¨´?¡Â 2??D
+            GPIO_SetBits(GPIOD, GPIO_Pin_3);//Â·??Ã¹?Ã· 2??D
           
          }
          UID_backup[0]=UID[0];
@@ -224,13 +224,13 @@ void  nfc_read(void)
          UID_backup[2]=UID[2];
          UID_backup[3]=UID[3];
          
-         CleanBuffer(40);//??3y ¡ä??¨²?¨®¨º??o3????¡ã40 ??¡Á??¨²¨ºy?Y
+         CleanBuffer(40);//??3y â€²??Ãº?Ã³Ãª??o3????Â°40 ??Ã—??ÃºÃªy?Y
     }*/
 }
 
 
 
-//??¨¨?¨ª¨´ 02??D¡ä 16??¡Á??¨²¦Ì?¦Ì¨²¨°???¡Á??¨²
+//??Ã¨?Ã­Ã¹ 02??Dâ€² 16??Ã—??ÃºÎ¼?Î¼ÃºÃ²???Ã—??Ãº
 //00 00 FF 15 EB D4 40 01 A0 02 00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F D1 00
 void  nfc_write(void)
 {
@@ -239,51 +239,51 @@ void  nfc_write(void)
       uint8_t i;
   
       uint8 TempMacAddress[6];
-      TempMacAddress[5]=XREG(0x780E); // Ö±½ÓÖ¸ÏòÖ¸ÕëÄÚÈİ  
+      TempMacAddress[5]=XREG(0x780E); // ç›´æ¥æŒ‡å‘æŒ‡é’ˆå†…å®¹  
       TempMacAddress[4]=XREG(0x780F);  
       TempMacAddress[3]=XREG(0x7810);  
-      TempMacAddress[2]=XREG(0x7811);                // define º¯ÊıÖ±½Ó¶Á³öÊı¾İ  
+      TempMacAddress[2]=XREG(0x7811);                // define å‡½æ•°ç›´æ¥è¯»å‡ºæ•°æ®  
       TempMacAddress[1]=XREG(0x7812);  
       TempMacAddress[0]=XREG(0x7813);  
     data[0]=0x00;
     data[1]=0x00;
     data[2]=0xFF;
     
-    data[3]=0x15; //¡ã¨¹ 3¡è?¨¨
-    data[4]=0xEB; //¡ã¨¹ 3¡è?¨¨ D¡ê?¨¦  0x100-data[3]
+    data[3]=0x15; //Â°Ã¼ 3Â¤?Ã¨
+    data[4]=0xEB; //Â°Ã¼ 3Â¤?Ã¨ Dï¿¡?Ã©  0x100-data[3]
     
-    data[5]=0xD4; //?¨¹¨¢?¡À¨º¨º???
-    data[6]=0x40; //?¨¹¨¢?¡À¨º¨º???
+    data[5]=0xD4; //?Ã¼Ã¡?Â±ÃªÃª???
+    data[6]=0x40; //?Ã¼Ã¡?Â±ÃªÃª???
     
-    data[7]=0x01; //?¨¢D¡ä¡ä¨®¨®¨²6¡Á??¨² ?¨ª??1¡ê??¡ä¨º?2¨¢
-    data[8]=0xA0; //D¡ä
-    data[9]=0x02; //D¡ä¦Ì¨²?t?¨¦¦Ì?16¡Á??¨²¨ºy?Y 
+    data[7]=0x01; //?Ã¡Dâ€²â€²Ã³Ã³Ãº6Ã—??Ãº ?Ã­??1ï¿¡??â€²Ãª?2Ã¡
+    data[8]=0xA0; //Dâ€²
+    data[9]=0x02; //Dâ€²Î¼Ãº?t?Ã©Î¼?16Ã—??ÃºÃªy?Y 
     
-    data[10]=TempMacAddress[0]; //¦Ì¨² 1 ¡Á??¨² ¨ºy?Y
+    data[10]=TempMacAddress[0]; //Î¼Ãº 1 Ã—??Ãº Ãªy?Y
     data[11]=TempMacAddress[1];
-    data[12]=TempMacAddress[2]; //¦Ì¨² 3 ¡Á??¨² ¨ºy?Y
+    data[12]=TempMacAddress[2]; //Î¼Ãº 3 Ã—??Ãº Ãªy?Y
     data[13]=TempMacAddress[3];
-    data[14]=TempMacAddress[4]; //¦Ì¨² 5 ¡Á??¨² ¨ºy?Y
+    data[14]=TempMacAddress[4]; //Î¼Ãº 5 Ã—??Ãº Ãªy?Y
     data[15]=TempMacAddress[5];
-    data[16]=TempMacAddress[0]; //¦Ì¨² 7 ¡Á??¨² ¨ºy?Y
+    data[16]=TempMacAddress[0]; //Î¼Ãº 7 Ã—??Ãº Ãªy?Y
     data[17]=TempMacAddress[0];
-    data[18]=0x00; //¦Ì¨² 9 ¡Á??¨² ¨ºy?Y
+    data[18]=0x00; //Î¼Ãº 9 Ã—??Ãº Ãªy?Y
     data[19]=0x00;
-    data[20]=0x00; //¦Ì¨² 11 ¡Á??¨² ¨ºy?Y
+    data[20]=0x00; //Î¼Ãº 11 Ã—??Ãº Ãªy?Y
     data[21]=0x00;
-    data[22]=0x00; //¦Ì¨² 13 ¡Á??¨² ¨ºy?Y
+    data[22]=0x00; //Î¼Ãº 13 Ã—??Ãº Ãªy?Y
     data[23]=0x00;
-    data[24]=0x00; //¦Ì¨² 15 ¡Á??¨² ¨ºy?Y
+    data[24]=0x00; //Î¼Ãº 15 Ã—??Ãº Ãªy?Y
     data[25]=0x00;
     
     for(i=5;i<26;i++)
     {
         temp+=data[i];
     }
-    data[26]=0x100-temp; //¨ºy?Y D¡ê?¨¦??
+    data[26]=0x100-temp; //Ãªy?Y Dï¿¡?Ã©??
     data[27]=0x00;
 
-    UartSendString1(data,28);//¨ª¨´USART1¡ê?¡¤¡é?¨ª length3¡è?¨¨¦Ì?¨ºy?Ydata
+    UartSendString1(data,28);//Ã­Ã¹USART1ï¿¡?Â·ï¿ ?Ã­ length3Â¤?Ã¨Î¼?Ãªy?Ydata
     
 
     //while(!flag_rev_finish)
@@ -298,13 +298,13 @@ void  nfc_write(void)
     CheckCode=0x100-temp;
     if(CheckCode==RxBuffer1[14])
     {
-         CleanBuffer(40);//??3y ¡ä??¨²?¨®¨º??o3????¡ã40 ??¡Á??¨²¨ºy?Y
+         CleanBuffer(40);//??3y â€²??Ãº?Ã³Ãª??o3????Â°40 ??Ã—??ÃºÃªy?Y
          
          if((UID_backup[0]!=UID[0])|(UID_backup[1]!=UID[1])|(UID_backup[2]!=UID[2])|(UID_backup[3]!=UID[3]))
          {
-            GPIO_ResetBits(GPIOD,GPIO_Pin_3);//¡¤??¨´?¡Â ?D
+            GPIO_ResetBits(GPIOD,GPIO_Pin_3);//Â·??Ã¹?Ã· ?D
             delay_ms(10);
-            GPIO_SetBits(GPIOD, GPIO_Pin_3);//¡¤??¨´?¡Â 2??D
+            GPIO_SetBits(GPIOD, GPIO_Pin_3);//Â·??Ã¹?Ã· 2??D
            
          }
          UID_backup[0]=UID[0];
