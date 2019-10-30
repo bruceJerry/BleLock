@@ -78,7 +78,7 @@ void PN532WakeUp()
         data[21]=0x01;
         data[22]=0x17; //êy?Y D￡?é   0x100-
         data[23]=0x00;
-        //test   haha 
+  
         UartSendString1(data,24);//íùUSART1￡?·￠?í length3¤?èμ?êy?Ydata
   
        
